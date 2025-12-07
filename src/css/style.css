@@ -89,14 +89,90 @@ nav ul li button.login {
   background: linear-gradient(135deg, var(--login-color), var(--login-hover));
 }
 
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* backdrop-filter: blur(8px); */
+}
+
+.container h1 {
+  color: var(--text-color);
+  font-size: 1.5rem;
+  margin-bottom: 50px;
+}
+
+.auth-form {
+  background-color: var(--nav-bg-color);
+  padding: 40px 30px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 320px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+.auth-form div {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.auth-form div img:first-child {
+  width: 20px;
+  height: 20px;
+}
+
+.auth-form input[type="text"],
+.auth-form input[type="password"] {
+  flex: 1;
+  text-align: center;
+  padding: 10px 40px 10px 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 8px;
+  color: var(--text-color);
+  outline: none;
+  transition: background 0.2s ease;
+}
+
+.auth-form input[type="text"]:hover,
+.auth-form input[type="password"]:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+#pass-btn {
+  position: absolute;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+#pass-btn:hover {
+  transform: scale(1.2);
+}
+
 .auth-form input.login {
+  margin-top: 10px;
   text-align: center;
   border: none;
   font-weight: 500;
-  color: var(--nav-text-color);
+  color: var(--text-color);
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   background: linear-gradient(135deg, var(--login-color), var(--login-hover));
+  padding: 6px 12px;
+  line-height: 1.5;
+  border-radius: 8px;
+  transition: all 0.25s ease-in-out;
 }
 
 .auth-form input.login:hover {
@@ -105,6 +181,8 @@ nav ul li button.login {
 
 nav ul li button.login:hover {
   background: linear-gradient(135deg, var(--login-hover), #f4c482);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
 
 nav ul li button.logout {
@@ -145,7 +223,7 @@ nav form {
   overflow: hidden;
   max-width: 0;
   opacity: 0;
-  transition: max-width 0.4s ease, opacity 0.3s ease;
+  transition: max-width 0.4s ease, opacity 0.3s ease-in-out;
   white-space: nowrap;
 }
 

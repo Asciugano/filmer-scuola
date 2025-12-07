@@ -18,19 +18,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 
 <body>
-  <form class="auth-form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-    <div>
-      <img src="#" alt="person">
-      <input type="text" name="email" required>
-    </div>
-    <div>
-      <img src="#" alt="lock">
-      <input type="password" name="password" id="pass-inp" required>
-      <img src="#" alt="eye" id="pass-btn">
-    </div>
+  <div class="container">
+    <h1>Login</h1>
+    <form class="auth-form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+      <div>
+        <img src="../res/icons/person.png" alt="person">
+        <input type="text" name="email" placeholder="email" required>
+      </div>
+      <div>
+        <img src="../res/icons/lock.png" alt="lock">
+        <input type="password" name="password" id="pass-inp" placeholder="password" required>
+        <img src="../res/icons/eye.png" alt="eye" id="pass-btn">
+      </div>
 
-    <input type="submit" value="Login" class="login">
-  </form>
+      <input type="submit" value="Login" class="login">
+    </form>
+  </div>
 
   <script src="../js/auth.js"></script>
 </body>
