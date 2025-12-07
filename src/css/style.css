@@ -89,6 +89,20 @@ nav ul li button.login {
   background: linear-gradient(135deg, var(--login-color), var(--login-hover));
 }
 
+.auth-form input.login {
+  text-align: center;
+  border: none;
+  font-weight: 500;
+  color: var(--nav-text-color);
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, var(--login-color), var(--login-hover));
+}
+
+.auth-form input.login:hover {
+  background: linear-gradient(135deg, var(--login-hover), #f4c482);
+}
+
 nav ul li button.login:hover {
   background: linear-gradient(135deg, var(--login-hover), #f4c482);
 }
