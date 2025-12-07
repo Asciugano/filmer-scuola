@@ -20,13 +20,13 @@ $logged = $_SESSION['logged'] ?? false;
         <?php endif; ?>
         <li><button onclick="search()" class="search"><img src="../res/icons/search.png" alt="search"></button>
     </ul>
-    <form action="search.php" method="get" class="hidden" id="search-form">
+    <form action="search.php" method="get" id="search-form" class="hidden">
       <select name="table">
         <option value="film">film</option>
         <option value="registi">registi</option>
         <option value="cinema">cinema</option>
       </select>
-      <input type="text" name="value" required>
+      <input type="text" name="value" placeholder="Cerca qualcosa" required>
       <input type="submit" value="Cerca">
     </form>
   </nav>

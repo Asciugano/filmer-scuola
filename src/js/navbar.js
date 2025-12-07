@@ -7,9 +7,7 @@ function auth(login) {
 }
 
 function search() {
-  const search_form = document.querySelector("#search-form");
-  if (search_form.classList.contains("hidden"))
-    search_form.classList.remove("hidden")
-  else
-    search_form.classList.add("hidden")
+  const form_search = document.querySelector("#search-form");
+  form_search.classList.toggle("visible");
+  form_search.classList.toggle("hidden");
 }

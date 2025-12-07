@@ -37,6 +37,7 @@ nav {
   margin: 20px auto 0 auto;
   background-color: var(--nav-bg-color);
   border-radius: 10px;
+  transition: all 0.25s ease-in-out;
 }
 
 nav .logo {
@@ -126,20 +127,49 @@ nav ul li button:focus {
   display: none;
 }
 
+nav form {
+  overflow: hidden;
+  max-width: 0;
+  opacity: 0;
+  transition: max-width 0.4s ease, opacity 0.3s ease;
+  white-space: nowrap;
+}
+
+@keyframes showForm {
+  0% {
+    max-width: 0;
+    opacity: 0;
+  }
+
+  100% {
+    max-width: 300px;
+    opacity: 1;
+  }
+}
+
+nav form.visible {
+  animation: showForm 0.4s forwards;
+}
+
 nav form input,
 nav form select {
   background-color: var(--nav-bg-color);
   border: none;
   min-height: 32px;
+  text-align: center;
   border-radius: 8px;
   color: var(--text-color);
+}
+
+nav form input[type="submit"] {
+  padding: 10px;
 }
 
 nav form select {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  padding: 10px 10px 10px 10px;
+  padding: 10px 40px 10px 10px;
   cursor: pointer;
   outline: none;
 
