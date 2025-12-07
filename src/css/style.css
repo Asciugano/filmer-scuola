@@ -121,3 +121,30 @@ nav ul li button:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(255, 156, 38, 0.5);
 }
+
+.hidden {
+  display: none;
+}
+
+nav form input,
+nav form select {
+  background-color: var(--nav-bg-color);
+  border: none;
+  min-height: 32px;
+  border-radius: 8px;
+  color: var(--text-color);
+}
+
+nav form select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 10px 10px 10px 10px;
+  cursor: pointer;
+  outline: none;
+
+  /* freccina */
+  background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 5px center;
+}

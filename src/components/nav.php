@@ -14,17 +14,22 @@ $logged = $_SESSION['logged'] ?? false;
       <li><a href="#">Cinema</a></li>
       <li><a href="#">Registi</a></li>
       <?php if (!$logged): ?>
-        <li><button onclick="" class="login">Login</button>
+        <li><button onclick="auth(true)" class="login">Login</button>
         <?php else: ?>
-        <li><button onclick="" class="logout">Logout</button>
+        <li><button onclick="auth(false)" class="logout">Logout</button>
         <?php endif; ?>
-        <li><button onclick="" class="search"><img src="../res/icons/search.png" alt="search"></button>
+        <li><button onclick="search()" class="search"><img src="../res/icons/search.png" alt="search"></button>
     </ul>
+    <form action="search.php" method="get" class="hidden" id="search-form">
+      <select name="table">
+        <option value="film">film</option>
+        <option value="registi">registi</option>
+        <option value="cinema">cinema</option>
+      </select>
+      <input type="text" name="value" required>
+      <input type="submit" value="Cerca">
+    </form>
   </nav>
 
-  <script>
-    document.querySelector('.logo').addEventListener('click', () => {
-      window.location.href = "/index.php";
-    });
-  </script>
+  <script src="../js/navbar.js"></script>
 </body>
