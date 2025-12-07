@@ -1,0 +1,123 @@
+:root {
+  /* login colors */
+  --logout-color: #e63946;
+  --logout-hover: #d62828;
+  --login-color: #f4a261;
+  --login-hover: #f4b260;
+
+  /* background and text colors */
+  --background-1: #252526;
+  --background-2: #4f4f4f;
+  --text-color: #fff;
+
+  /* nav colors */
+  --nav-bg-color: rgba(255, 255, 255, 0.1);
+  --nav-text-color: #bababa;
+  --nav-btn-color: #898888;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: sans-serif;
+  background: linear-gradient(to bottom, var(--background-1), var(--background-2));
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  max-width: 1000px;
+  margin: 20px auto 0 auto;
+  background-color: var(--nav-bg-color);
+  border-radius: 10px;
+}
+
+nav .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--nav-text-color);
+  cursor: pointer;
+}
+
+nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  align-items: center;
+}
+
+nav ul li a,
+nav ul li button {
+  font-size: 16px;
+  padding: 6px 12px;
+  line-height: 1.5;
+  border-radius: 8px;
+  transition: all 0.25s ease-in-out;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--nav-text-color);
+}
+
+
+nav ul li a:hover {
+  color: var(--text-color);
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+nav ul li button {
+  background: var(--nav-btn-color);
+  min-width: 80px;
+  text-align: center;
+  border: none;
+  font-weight: 500;
+  color: var(--text-color);
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav ul li button.login {
+  background: linear-gradient(135deg, var(--login-color), var(--login-hover));
+}
+
+nav ul li button.login:hover {
+  background: linear-gradient(135deg, var(--login-hover), #f4c482);
+}
+
+nav ul li button.logout {
+  background: linear-gradient(135deg, var(--logout-color), var(--logout-hover));
+}
+
+nav ul li button.logout:hover {
+  background: linear-gradient(135deg, var(--logout-hover), #f06060);
+}
+
+nav ul li button.search {
+  min-width: 32px;
+  min-height: 32px;
+  border-radius: 100%;
+}
+
+nav ul li button.search img {
+  height: 16px;
+  width: 16px;
+}
+
+nav ul li button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  filter: brightness(1.1);
+}
+
+nav ul li button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 156, 38, 0.5);
+}

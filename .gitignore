@@ -1,0 +1,61 @@
+# --- PHP ---
+# File temporanei o di cache
+*.log
+*.cache
+*.tmp
+*.temp
+*.swp
+*.swo
+*.bak
+*.old
+
+# Composer
+/vendor/
+/composer.lock
+
+# PHPUnit
+.phpunit.result.cache
+/phpunit.xml
+/phpunit.xml.dist
+
+# Coverage reports
+coverage/
+.clover
+.phpunit.cache
+htmlcov/
+
+# --- IDE/Editor ---
+# VS Code
+.vscode/
+# PhpStorm / JetBrains
+.idea/
+# Sublime
+*.sublime-workspace
+*.sublime-project
+
+# --- OS ---
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# --- Docker ---
+/docker-compose.override.yml
+/.env
+.env.local
+.env.*.local
+
+# --- Logs e dati vari ---
+/logs
+/storage
+/tmp
+/cache
+
+# --- Build / Deployment ---
+/node_modules
+/dist
+/public/build
