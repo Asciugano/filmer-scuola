@@ -26,6 +26,7 @@ body {
   min-height: 100vh;
   font-family: sans-serif;
   background: linear-gradient(to bottom, var(--background-1), var(--background-2));
+  color: var(--text-color);
 }
 
 nav {
@@ -279,4 +280,70 @@ nav form select {
 
 .error {
   color: #f06060;
+}
+
+.film-list {
+  margin: 30px auto;
+  padding: 20px;
+  max-width: calc(100% - 40px);
+}
+
+.film-list h2 {
+  margin-bottom: 20px;
+}
+
+.films {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin: 30px auto;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  flex: 0 0 200px;
+
+  background: var(--nav-bg-color);
+  color: var(--text-color);
+
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  width: 200px;
+  padding: 15px;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.card h2 {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+/* regista */
+.card p {
+  font-size: 0.9rem;
+  margin: 2px 0;
+}
+
+.card p:last-child,
+.card p:nth-last-child(2) {
+  font-size: 0.8rem;
+  color: var(--nav-text-color);
 }
