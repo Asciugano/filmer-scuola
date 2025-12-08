@@ -27,11 +27,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
       $hashedPass = password_hash($password, PASSWORD_DEFAULT);
       $stmt = $conn->prepare("INSERT INTO users (fullName, email, password) VALUES (?, ?, ?)");
-      $stmt->bind_param("s", $fullName, $email, $hashedPass);
+      $stmt->bind_param("sss", $fullName, $email, $hashedPass);
       $stmt->execute();
 
       $_SESSION['logged'] = true;
-      header("Location: index.php");
+      header("Location: /index.php");
       exit();
     }
   } else {
@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         <img src="../res/icons/eye.png" alt="eye" id="pass-btn">
       </div>
 
-      <input type="submit" value="Login" class="login">
+      <input type="submit" value="Register" class="login">
       <p>Hai gia' un account? <a href="/pages/login.php">Accedi</a></p>
     </form>
   </div>
