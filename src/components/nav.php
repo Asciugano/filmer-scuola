@@ -20,7 +20,7 @@ $logged = $_SESSION['logged'] ?? false;
         <?php endif; ?>
         <li><button onclick="search()" class="search"><img src="../res/icons/search.png" alt="search"></button>
     </ul>
-    <form action="search.php" method="get" id="search-form" class="hidden">
+    <form action="/components/search.php" method="get" id="search-form" class="hidden">
       <select name="table">
         <option value="film">film</option>
         <option value="registi">registi</option>
