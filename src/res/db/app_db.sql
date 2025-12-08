@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Creato il: Dic 08, 2025 alle 14:12
+-- Creato il: Dic 08, 2025 alle 15:19
 -- Versione del server: 8.0.44
 -- Versione PHP: 8.3.26
 
@@ -59,7 +59,7 @@ CREATE TABLE `film` (
   `durata` int NOT NULL,
   `anno` int NOT NULL,
   `idRegista` int NOT NULL,
-  `locandina` varchar(40) DEFAULT NULL
+  `locandina` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -67,21 +67,21 @@ CREATE TABLE `film` (
 --
 
 INSERT INTO `film` (`id`, `titolo`, `durata`, `anno`, `idRegista`, `locandina`) VALUES
-(1, 'Inception', 148, 2010, 1, 'inception.jpg'),
-(2, 'Interstellar', 169, 2014, 1, 'interstellar.jpg'),
-(3, 'Pulp Fiction', 154, 1994, 2, 'pulpfiction.jpg'),
-(4, 'Django Unchained', 165, 2012, 2, 'django.jpg'),
-(5, 'Jurassic Park', 127, 1993, 3, 'jurassicpark.jpg'),
-(6, 'Schindler List', 195, 1993, 3, 'schindler.jpg'),
-(7, 'Goodfellas', 146, 1990, 4, 'goodfellas.jpg'),
-(8, 'The Wolf of Wall Street', 180, 2013, 4, 'wolfofwallstreet.jpg'),
-(9, 'Dune', 155, 2021, 5, 'dune.jpg'),
-(10, 'Arrival', 116, 2016, 5, 'arrival.jpg'),
-(11, 'Spirited Away', 125, 2001, 6, 'spiritedaway.jpg'),
-(12, 'Avatar', 162, 2009, 7, 'avatar.jpg'),
-(13, 'Titanic', 195, 1997, 7, 'titanic.jpg'),
-(14, 'The Lord of the Rings', 178, 2001, 8, 'lotr.jpg'),
-(15, 'Blade Runner 2049', 163, 2017, 10, 'bladerunner2049.jpg');
+(1, 'Inception', 148, 2010, 1, 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fflxt.tmsimg.com%2Fassets%2Fp7825626_p_v8_af.jpg&f=1&nofb=1&ipt=b1664aa017510a98ecccb10005a167a9fc84d789afb5270718e47bc44cc2a0a2'),
+(2, 'Interstellar', 169, 2014, 1, 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmir-s3-cdn-cf.behance.net%2Fproject_modules%2Fhd%2F297acd129204217.616629e21fe76.png&f=1&nofb=1&ipt=057e6b5d21c4cff29964bedba475a9c2cf43ad56996be807b7138795a52cf7b7'),
+(3, 'Pulp Fiction', 154, 1994, 2, 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fb3%2F4d%2Fd7%2Fb34dd71e2389ed3a37af5d7b7e9fedb2.jpg&f=1&nofb=1&ipt=ab4bea22719e3d08763ac9cc397a7d066d64b91981a60a2543c4d04a24ab7e54'),
+(4, 'Django Unchained', 165, 2012, 2, 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn1.cinenode.com%2Fmovie_poster%2F77%2Ffull%2Fdjango-unchained-77178.jpg&f=1&nofb=1&ipt=ea83dd1393d7a654ff1b2a1674ea1fc167c086276f26ae10f84bf28d6858ae1a'),
+(5, 'Jurassic Park', 127, 1993, 3, 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic1.cbrimages.com%2Fwordpress%2Fwp-content%2Fuploads%2F2021%2F01%2Fjurassic-park-1.jpg&f=1&nofb=1&ipt=6b68379cb99ee1b8957d7e3395d90a60acf826fd1d3ea41c386b7400e6dafe16'),
+(6, 'Schindler List', 195, 1993, 3, 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fm0pV0fmMERzCvPVQbLLrPPLl5q1.jpg&f=1&nofb=1&ipt=d259212c5f33ec5f6dfe2e8f40888587926cec8e0d99af56de31c562e6e9d76c'),
+(7, 'Goodfellas', 146, 1990, 4, 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fe8%2Fac%2Fc7%2Fe8acc7e601446c5f9ea682c3a80b0b57.jpg&f=1&nofb=1&ipt=ebc2e1447c9ffd047a88e029688a8bf07281826fd32db6d1137ffb135ef3a153'),
+(8, 'The Wolf of Wall Street', 180, 2013, 4, 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FdQIQZbJXn1pflQw3nwvXLJX0dHa.jpg&f=1&nofb=1&ipt=a7c93f22b8d0884a9902329b284f5c17206000e2c8a8c5cdefdd799d5bde4a21'),
+(9, 'Dune', 155, 2021, 5, 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2Flj3l8oYYYzhrUJMgX2723pogzF9.jpg&f=1&nofb=1&ipt=fa4a0792bcf6736b177141559c23323cb433c29a00ed9f22d8f0637431721142'),
+(10, 'Arrival', 116, 2016, 5, 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Figufinarranti.altervista.org%2Fwp-content%2Fuploads%2F2017%2F01%2Farrival-nuova-locandina-in-italiano.jpg&f=1&nofb=1&ipt=c47862e281525f30f092e715ccd79a4746314f36527ccbe55dfc0b5c750c0f41'),
+(11, 'Spirited Away', 125, 2001, 6, 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F0f%2F51%2Fc1%2F0f51c158fac6be841466e8275089c6f4.jpg&f=1&nofb=1&ipt=08d2dbf12ea917b0babdfd66a640d69273f87979c6ec764fe23762250d14a489'),
+(12, 'Avatar', 162, 2009, 7, 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcultura.biografieonline.it%2Fwp-content%2Fuploads%2F2012%2F05%2Favatar-locandina-italiana.jpg&f=1&nofb=1&ipt=1dc9f4ab009f73d10023bb8531efdab44cb70fcec7c3e341dd1ce0b112beb9e1'),
+(13, 'Titanic', 195, 1997, 7, 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F91%2F4d%2Fe2%2F914de2bd1aa2130a33ec25ec121928fa.jpg&f=1&nofb=1&ipt=9c28689d5d73c9f09b0c422dfa9b24a818d9ad3da62eb77bd35e0926e91f6247'),
+(14, 'The Lord of the Rings', 178, 2001, 8, 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmir-s3-cdn-cf.behance.net%2Fproject_modules%2Fmax_1200%2F2ecc38100638215.5f0d64c0eeef2.png&f=1&nofb=1&ipt=08893d2eee2ff09494f1813154f9d6889eb629e58809fd92b4ac4ee4295e05dc'),
+(15, 'Blade Runner 2049', 163, 2017, 10, 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpad.mymovies.it%2Fcinemanews%2F2017%2F144312%2Flocandina-ver.jpg&f=1&nofb=1&ipt=53a3cfbb0be4d5faa5e68b92b99d663b091801723a26b7b6b3d7e52d523695da');
 
 -- --------------------------------------------------------
 
