@@ -111,10 +111,16 @@ nav ul li button.login {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: 320px;
+  width: 420px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
   color: var(--text-color);
   transition: all 0.3s ease;
+}
+
+.auth-form a {
+  margin-top: 40px;
+  text-decoration: none;
+  color: var(--login-color);
 }
 
 .auth-form div {
@@ -269,4 +275,8 @@ nav form select {
   background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5'/></svg>");
   background-repeat: no-repeat;
   background-position: right 5px center;
+}
+
+.error {
+  color: #f06060;
 }

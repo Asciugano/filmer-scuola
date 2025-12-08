@@ -3,13 +3,16 @@ if (session_status() == PHP_SESSION_NONE) {
   session_start();
 }
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+
   $error = "";
-  if (isset($_POST['email']) && isset($_POST['password'])) {
+
+  if (isset($_POST['fullName']) && isset($_POST['email']) && isset($_POST['password'])) {
+    $fullName = $_POST['fullName'];
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    require_once '../config.php';
+    require_once "../config.php";
     $conn = getConnection();
     $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
     $stmt->bind_param("s", $email);
@@ -17,10 +20,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $result = $stmt->get_result();
 
     $user = $result->fetch_assoc();
-    if (!$user || password_verify($password, $user['password'])) {
-      $error = "Credenziali errate";
-      return;
+
+    if ($user) {
+      $error = "Email gia' in utilizzo";
     } else {
+
+      $hashedPass = password_hash($password, PASSWORD_DEFAULT);
+      $stmt = $conn->prepare("INSERT INTO users (fullName, email, password) VALUES (?, ?, ?)");
+      $stmt->bind_param("s", $fullName, $email, $hashedPass);
+      $stmt->execute();
+
       $_SESSION['logged'] = true;
       header("Location: index.php");
       exit();
@@ -37,13 +46,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>login</title>
+  <title>register</title>
   <link href="../css/style.css" rel="stylesheet">
 </head>
 
 <body>
   <div class="container">
-    <h1>Login</h1>
+    <h1>Register</h1>
 
     <?php if (!empty($error)): ?>
       <h2 class="error"><?= htmlspecialchars($error) ?></h2>
@@ -52,6 +61,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <form class="auth-form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
       <div>
         <img src="../res/icons/person.png" alt="person">
+        <input type="text" name="fullName" placeholder="Nome" required>
+      </div>
+      <div>
+        <img src="../res/icons/mail.png" alt="mail">
         <input type="text" name="email" placeholder="email" required>
       </div>
       <div>
@@ -61,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       </div>
 
       <input type="submit" value="Login" class="login">
-      <p>Non hai ancora un account? <a href="/pages/register.php">Registrati</a></p>
+      <p>Hai gia' un account? <a href="/pages/login.php">Accedi</a></p>
     </form>
   </div>
 
