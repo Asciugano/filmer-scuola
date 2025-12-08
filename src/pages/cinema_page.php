@@ -4,23 +4,19 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 require_once "../config.php";
-require_once "../components/film_card.php";
+require_once "../components/cinema_card.php";
 
 $conn = getConnection();
 
-$result = $conn->query("SELECT film.*, registi.* FROM film INNER JOIN registi ON registi.id = film.idRegista");
-$films = [];
+$result = $conn->query("SELECT * FROM cinema");
+$cinemas = [];
 while ($row = $result->fetch_assoc()) {
-  $films[] = [
+  $cinemas[] = [
     'id' => $row['id'],
-    'titolo' => $row['titolo'],
-    'durata' => $row['durata'],
-    'anno' => $row['anno'],
-    'locandina' => $row['locandina'],
-    'regista' => [
-      'nome' => $row['nome'],
-      'cognome' => $row['cognome']
-    ]
+    'nome' => $row['nome'],
+    'citta' => $row['citta'],
+    'numSale' => $row['numSale'],
+    'numPost' => $row['numPost'],
   ];
 }
 $conn = getConnection();
@@ -32,7 +28,7 @@ $conn = getConnection();
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Films</title>
+  <title>Cinema</title>
   <link href="../css/style.css" rel="stylesheet">
 </head>
 
@@ -41,10 +37,10 @@ $conn = getConnection();
 
 
   <div class="film-list">
-    <h1>Films</h1>
+    <h1>Cinema</h1>
     <div class="films">
-      <?php foreach ($films as $film): ?>
-        <?php filmCard($film); ?>
+      <?php foreach ($cinemas as $cinema): ?>
+        <?php cinemaCard($cinema); ?>
       <?php endforeach; ?>
     </div>
   </div>

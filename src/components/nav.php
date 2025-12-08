@@ -11,8 +11,8 @@ $logged = $_SESSION['logged'] ?? false;
     <h2 class="logo">Film</h2>
     <ul>
       <li><a href="/pages/film_page.php">Film</a></li>
-      <li><a href="#">Cinema</a></li>
-      <li><a href="#">Registi</a></li>
+      <li><a href="/pages/cinema_page.php">Cinema</a></li>
+      <li><a href="/pages/registi_page.php">Registi</a></li>
       <?php if (!$logged): ?>
         <li><button onclick="auth(true)" class="login">Login</button>
         <?php else: ?>

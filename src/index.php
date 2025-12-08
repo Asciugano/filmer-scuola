@@ -19,7 +19,21 @@ while ($row = $result->fetch_assoc()) {
   ];
 }
 
+$result = $conn->query("SELECT * FROM cinema LIMIT 3");
+$cinemas = [];
+while ($row = $result->fetch_assoc()) {
+  $cinemas[] = [
+    'id' => $row['id'],
+    'nome' => $row['nome'],
+    'citta' => $row['citta'],
+    'numSale' => $row['numSale'],
+    'numPost' => $row['numPost'],
+  ];
+}
+
+
 require_once "./components/film_card.php";
+require_once "./components/cinema_card.php";
 ?>
 
 <!DOCTYPE html>
@@ -42,6 +56,14 @@ require_once "./components/film_card.php";
             <?php filmCard($film); ?>
           <?php endforeach; ?>
         </div>
+  </div>
+  <div class="film-list">
+    <h2>Cinema</h2>
+    <div class="films">
+      <?php foreach ($cinemas as $cinema): ?>
+        <?php cinemaCard($cinema); ?>
+      <?php endforeach; ?>
+    </div>
   </div>
 </body>
 

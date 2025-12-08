@@ -3,7 +3,8 @@ document.querySelector('.logo').addEventListener('click', () => {
 });
 
 function auth(login) {
-  window.location.href = `pages/${login ? "login" : "logout"}.php`;
+  window.location.href = `/pages/${login ? "login" : "logout"}.php`;
+  // window.location.href = `${window.location.origin}/pages/${login ? "login" : "logout"}.php`;
 }
 
 function search() {

@@ -8,7 +8,7 @@ require_once "../components/film_card.php";
 
 $conn = getConnection();
 
-$result = $conn->query("SELECT film.*, registi.* FROM film INNER JOIN registi ON registi.id = film.idRegista");
+$result = $conn->query("SELECT film.*, registi.* FROM film INNER JOIN registi ON registi.id = film.idRegista ORDER BY registi.nome, registi.cognome");
 $films = [];
 while ($row = $result->fetch_assoc()) {
   $films[] = [
@@ -32,7 +32,7 @@ $conn = getConnection();
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Films</title>
+  <title>Registi</title>
   <link href="../css/style.css" rel="stylesheet">
 </head>
 
