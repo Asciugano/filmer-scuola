@@ -60,6 +60,11 @@ Se usi **Colima**:
 4. Per modificare la password dell'utente:
    - MYSQL_PASSWORD
 
+## Se da errori all'Avvio
+1. Controllare la presenza dei dati nel DB
+   - andare su phpMyAdmin e sul database app_db fare import del file ./src/res/db/app_db.sql
+2. Riprovare a ad accedere
+
 ## Per arrestare
 1. Container Docker:
    - per eliminare i dati nel db:
