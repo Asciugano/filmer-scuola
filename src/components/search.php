@@ -93,9 +93,14 @@ function fetchCinema($result)
       </div>
     </div>
   <?php elseif ($table == "cinema"): ?>
-    <?php foreach (fetchCinema($result) as $cinema): ?>
-      <?php cinemaCard($cinema); ?>
-    <?php endforeach; ?>
+    <div class="film-list">
+      <h2>Cinema Trovati: </h2>
+      <div class="films">
+        <?php foreach (fetchCinema($result) as $cinema): ?>
+          <?php cinemaCard($cinema); ?>
+        <?php endforeach; ?>
+      </div>
+    </div>
   <?php else: ?>
     <h2 class="error">Impossibile cercare per la tabella selezionata</h2>
   <?php endif; ?>
