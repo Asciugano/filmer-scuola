@@ -10,7 +10,7 @@ $logged = $_SESSION['logged'] ?? false;
   <nav>
     <h2 class="logo">Film</h2>
     <ul>
-      <li><a href="#">Film</a></li>
+      <li><a href="/pages/film_page.php">Film</a></li>
       <li><a href="#">Cinema</a></li>
       <li><a href="#">Registi</a></li>
       <?php if (!$logged): ?>
