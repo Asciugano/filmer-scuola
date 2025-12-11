@@ -319,6 +319,46 @@ nav form select {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.card .card-actions {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: calc(100% - 40px);
+
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.4 ease, opacity 0.4s ease-in-out;
+}
+
+.card .card-actions.visible {
+  animation: showCardActions 0.4s bottom;
+}
+
+@keyframes showCardActions {
+  0% {
+    max-height: 0;
+    opacity: 0;
+  }
+
+  100% {
+    max-height: 100px;
+    opacity: 1;
+  }
+}
+
+.card-actions form input {
+  border: none;
+  border-radius: 8px;
+  background-color: #000;
+}
+
+.card-actions form input:first-child {
+  background-color: #2eed15;
+}
+
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6);

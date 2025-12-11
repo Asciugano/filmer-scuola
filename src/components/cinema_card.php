@@ -8,5 +8,7 @@ function cinemaCard($cinema)
     <p><?= $cinema['numSale'] ?></p>
     <p><?= $cinema['numPost'] ?></p>
   </div>
+  <script>
+  </script>
 <?php
 }

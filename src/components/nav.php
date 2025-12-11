@@ -4,15 +4,24 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 $logged = $_SESSION['logged'] ?? false;
+$current_page = $_SESSION['current_page'] ?? "index.php";
 ?>
 
 <body>
   <nav>
     <h2 class="logo">Film</h2>
     <ul>
-      <li><a href="/pages/film_page.php">Film</a></li>
-      <li><a href="/pages/cinema_page.php">Cinema</a></li>
-      <li><a href="/pages/registi_page.php">Registi</a></li>
+      <?php if ($current_page != "/pages/film_page.php"): ?>
+        <li><a href="/pages/film_page.php">Film</a></li>
+      <?php endif; ?>
+      <!-- TODO: Aggiungere le proiezioni -->
+      <!-- TODO: Aggiungere i prefetiti -->
+      <?php if ($current_page != "/pages/cinema_page.php"): ?>
+        <li><a href="/pages/cinema_page.php">Cinema</a></li>
+      <?php endif; ?>
+      <?php if ($current_page != "/pages/registi_page.php"): ?>
+        <li><a href="/pages/registi_page.php">Registi</a></li>
+      <?php endif; ?>
       <?php if (!$logged): ?>
         <li><button onclick="auth(true)" class="login">Login</button>
         <?php else: ?>

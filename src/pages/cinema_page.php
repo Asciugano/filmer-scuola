@@ -3,6 +3,8 @@ if (session_status() == PHP_SESSION_NONE) {
   session_start();
 }
 
+$_SESSION['current_page'] = "/pages/cinema_page.php";
+
 require_once "../config.php";
 require_once "../components/cinema_card.php";
 
