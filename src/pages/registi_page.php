@@ -50,6 +50,8 @@ $conn = getConnection();
       <?php endforeach; ?>
     </div>
   </div>
+
+  <script src="../js/film-card.js"></script>
 </body>
 
 </html>

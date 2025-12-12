@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION['current_page'] = "index.php";
 require_once 'config.php';
 $conn = getConnection();
 
@@ -65,6 +66,8 @@ require_once "./components/cinema_card.php";
       <?php endforeach; ?>
     </div>
   </div>
+
+  <script src="./js/film-card.js"></script>
 </body>
 
 </html>

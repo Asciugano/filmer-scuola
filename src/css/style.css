@@ -72,7 +72,7 @@ nav ul li a {
 
 nav ul li a:hover {
   color: var(--text-color);
-  background-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.3);
 }
 
 nav ul li button {
@@ -330,11 +330,7 @@ nav form select {
   overflow: hidden;
   max-height: 0;
   opacity: 0;
-  transition: max-height 0.4 ease, opacity 0.4s ease-in-out;
-}
-
-.card .card-actions.visible {
-  animation: showCardActions 0.4s bottom;
+  transition: max-height 0.4s ease, opacity 0.4s ease-in-out;
 }
 
 @keyframes showCardActions {
@@ -349,14 +345,33 @@ nav form select {
   }
 }
 
+.card .card-actions.visible {
+  animation: showCardActions 0.4s forwards;
+}
+
 .card-actions form input {
   border: none;
   border-radius: 8px;
-  background-color: #000;
+  background-color: var(--nav-btn-color);
+  color: var(--text-color);
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin: 5px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-actions form input:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
 }
 
 .card-actions form input:first-child {
-  background-color: #2eed15;
+  background: linear-gradient(135deg, #2eed15, #25c812);
+}
+
+.card-actions form input:first-child:hover {
+  background: linear-gradient(135deg, #25c812, #1fa90e);
 }
 
 .card:hover {
