@@ -322,6 +322,7 @@ nav form select {
 .card .card-actions {
   margin-top: 20px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 
@@ -366,11 +367,11 @@ nav form select {
   transform: translateY(-2px);
 }
 
-.card-actions form input:first-child {
+.card-actions form:first-child input {
   background: linear-gradient(135deg, #2eed15, #25c812);
 }
 
-.card-actions form input:first-child:hover {
+.card-actions form:first-child input:hover {
   background: linear-gradient(135deg, #25c812, #1fa90e);
 }
 

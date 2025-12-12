@@ -24,6 +24,9 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
         $stmt = $conn->prepare("SELECT cinema.* FROM cinema WHERE nome LIKE ? OR citta LIKE ?");
         break;
 
+      case "preferiti":
+        // TODO: implementare la ricerca dai preferiti
+        break;
       default:
         exit("Tabella invalida");
     }

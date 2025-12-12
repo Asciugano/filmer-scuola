@@ -14,7 +14,10 @@ $current_page = $_SESSION['current_page'] ?? "index.php";
       <?php if ($current_page != "/pages/film_page.php"): ?>
         <li><a href="/pages/film_page.php">Film</a></li>
       <?php endif; ?>
-      <!-- TODO: Aggiungere le proiezioni -->
+      <?php if ($current_page != "/pages/preferiti_page.php"): ?>
+        <li><a href="/pages/preferiti_page.php">Preferiti</a></li>
+      <?php endif; ?>
+
       <!-- TODO: Aggiungere i prefetiti -->
       <?php if ($current_page != "/pages/cinema_page.php"): ?>
         <li><a href="/pages/cinema_page.php">Cinema</a></li>
@@ -34,6 +37,7 @@ $current_page = $_SESSION['current_page'] ?? "index.php";
         <option value="film">film</option>
         <option value="registi">registi</option>
         <option value="cinema">cinema</option>
+        <option value="preferiti">preferiti</option>
       </select>
       <input type="text" name="value" placeholder="Cerca qualcosa" required>
       <input type="submit" value="Cerca">

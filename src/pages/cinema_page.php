@@ -21,7 +21,6 @@ while ($row = $result->fetch_assoc()) {
     'numPost' => $row['numPost'],
   ];
 }
-$conn = getConnection();
 ?>
 
 <!DOCTYPE html>

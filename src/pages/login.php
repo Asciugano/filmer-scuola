@@ -21,7 +21,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $error = "Credenziali errate";
     } else {
       $_SESSION['logged'] = true;
-      header("Location: /index.php");
+      $_SESSION['userID'] = $user['id'];
+      header("Location: $_SESSION[current_page]");
       exit();
     }
   } else {

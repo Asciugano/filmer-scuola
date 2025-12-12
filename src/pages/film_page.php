@@ -25,7 +25,6 @@ while ($row = $result->fetch_assoc()) {
     ]
   ];
 }
-$conn = getConnection();
 ?>
 
 <!DOCTYPE html>

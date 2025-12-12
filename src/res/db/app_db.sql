@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Creato il: Dic 08, 2025 alle 15:19
+-- Creato il: Dic 12, 2025 alle 20:56
 -- Versione del server: 8.0.44
 -- Versione PHP: 8.3.26
 
@@ -183,6 +183,30 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `fullName`, `email`, `password`) VALUES
 (1, 'diaferio samuele', 'diaferiosamuele@gmail.com', '$2y$10$uWefP8ySpCzt2V4Bg63qpuQdnrJDnvSzyoxq9y03uaYh4NemaVkE6');
 
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `user_cinema_favourites`
+--
+
+CREATE TABLE `user_cinema_favourites` (
+  `id` int NOT NULL,
+  `userID` int NOT NULL,
+  `cinemaID` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `user_film_favourites`
+--
+
+CREATE TABLE `user_film_favourites` (
+  `id` int NOT NULL,
+  `userID` int NOT NULL,
+  `filmID` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 --
 -- Indici per le tabelle scaricate
 --
@@ -222,6 +246,22 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `email` (`email`);
 
 --
+-- Indici per le tabelle `user_cinema_favourites`
+--
+ALTER TABLE `user_cinema_favourites`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `userID` (`userID`,`cinemaID`),
+  ADD KEY `cinemaID` (`cinemaID`);
+
+--
+-- Indici per le tabelle `user_film_favourites`
+--
+ALTER TABLE `user_film_favourites`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `userID` (`userID`,`filmID`),
+  ADD KEY `filmID` (`filmID`);
+
+--
 -- AUTO_INCREMENT per le tabelle scaricate
 --
 
@@ -256,6 +296,18 @@ ALTER TABLE `users`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT per la tabella `user_cinema_favourites`
+--
+ALTER TABLE `user_cinema_favourites`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT per la tabella `user_film_favourites`
+--
+ALTER TABLE `user_film_favourites`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+--
 -- Limiti per le tabelle scaricate
 --
 
@@ -271,6 +323,20 @@ ALTER TABLE `film`
 ALTER TABLE `proiezioni`
   ADD CONSTRAINT `proiezioni_ibfk_1` FOREIGN KEY (`idCinema`) REFERENCES `cinema` (`id`),
   ADD CONSTRAINT `proiezioni_ibfk_2` FOREIGN KEY (`idFilm`) REFERENCES `film` (`id`);
+
+--
+-- Limiti per la tabella `user_cinema_favourites`
+--
+ALTER TABLE `user_cinema_favourites`
+  ADD CONSTRAINT `user_cinema_favourites_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `user_cinema_favourites_ibfk_2` FOREIGN KEY (`cinemaID`) REFERENCES `cinema` (`id`);
+
+--
+-- Limiti per la tabella `user_film_favourites`
+--
+ALTER TABLE `user_film_favourites`
+  ADD CONSTRAINT `user_film_favourites_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `user_film_favourites_ibfk_2` FOREIGN KEY (`filmID`) REFERENCES `film` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,22 +1,12 @@
 <?php
-if (session_status() === PHP_SESSION_NONE)
-  session_start();
-
-if ($_SERVER['REQUEST_METHOD'] === "GET") {
-  if (isset($_GET['azione'])) {
-    if ($_GET['azione'] === "Aggiungi ai preferiti") {
-      // TODO: implementare l'inserimento tra i prefetiti
-    } elseif ($_GET['azione'] === "Scopri proiezioni") {
-      // TODO: implementare le proiezioni
-    }
-  }
-}
-?>
-
-<?php
 function filmCard($film)
 {
+  if (session_status() === PHP_SESSION_NONE)
+    session_start();
 ?>
+  <?php if (!empty($_SESSION['err'])): ?>
+    <h2 class="error"><?= $_SESSION['err'] ?></h2>
+  <?php endif; ?>
   <div class="card">
     <img src="<?= $film['locandina'] ?>" alt="locandina">
     <h2><?= $film['titolo'] ?></h2>
@@ -25,9 +15,15 @@ function filmCard($film)
     <p><?= $film['anno'] ?></p>
 
     <div class="card-actions hidden">
-      <form action="" method="get">
-        <input type="submit" name="azione" value="Aggiungi ai preferiti">
-        <input type="submit" name="azione" value="Scopri proiezioni">
+      <form action="/services/favourites.php" method="post">
+        <input type="hidden" name="type" value="film">
+        <input type="hidden" name="id" value="<?= $film['id']; ?>">
+        <input type="submit" value="Aggiungi ai preferiti">
+      </form>
+      <!-- TODO: implementare le proieizoni -->
+      <form action="" method="post">
+        <input type="hidden" name="id" value="<?= $film['id']; ?>">
+        <input type="submit" value="Scopri le proiezioni">
       </form>
     </div>
   </div>

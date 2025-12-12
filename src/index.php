@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION['current_page'] = "index.php";
+$_SESSION['current_page'] = "/index.php";
 require_once 'config.php';
 $conn = getConnection();
 
